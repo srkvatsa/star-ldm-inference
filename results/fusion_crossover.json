@@ -1,0 +1,102 @@
+{
+  "hardware": {
+    "name": "Apple M4 Max",
+    "peak_bw_GBps": 546,
+    "peak_fp32_GFLOPS": 14000
+  },
+  "eager_slope_us": 2.0569841216639477,
+  "eager_intercept_us": 5.614359538388425,
+  "jit_slope_us": 1.8365661164011073,
+  "jit_intercept_us": 1.7065782585249076,
+  "metal_launch_us": 3.832583548501134,
+  "eager_chain_times_us": {
+    "1": 5.786555198331674,
+    "2": 10.855916577080885,
+    "4": 16.213389113545418,
+    "8": 22.545194563766323,
+    "16": 36.76794469356537,
+    "32": 70.32408347974221,
+    "64": 138.0444165940086
+  },
+  "jit_chain_times_us": {
+    "1": 3.323666440943877,
+    "2": 5.420944653451443,
+    "4": 9.100750088691711,
+    "8": 16.250528084735073,
+    "16": 31.148805283010006,
+    "32": 60.91333335886399,
+    "64": 119.03191668291886
+  },
+  "kernels": {
+    "RMSNorm+FiLM": {
+      "jit_us": 29.353333404287696,
+      "metal_us": 11.43952109850943,
+      "K_eff_unfused": 6,
+      "has_reduction": true,
+      "M_bytes": 77824
+    },
+    "TinyAttention": {
+      "jit_us": 99.53793743625283,
+      "metal_us": 25.845041498541832,
+      "K_eff_unfused": 9,
+      "has_reduction": true,
+      "M_bytes": 131584
+    },
+    "DDPMStep": {
+      "jit_us": 40.97804147750139,
+      "metal_us": 2.6786664966493845,
+      "K_eff_unfused": 17,
+      "has_reduction": false,
+      "M_bytes": 12296
+    },
+    "FusedV+DDPM": {
+      "jit_us": 46.1822294164449,
+      "metal_us": 2.968687564134598,
+      "K_eff_unfused": 23,
+      "has_reduction": false,
+      "M_bytes": 12296
+    }
+  },
+  "predictions": [
+    {
+      "kernel": "RMSNorm+FiLM",
+      "K_eff": 6,
+      "has_reduction": true,
+      "pred_metal_us": 3.9751183470359326,
+      "obs_metal_us": 11.43952109850943,
+      "pred_jit_us": 12.725974956931552,
+      "obs_jit_us": 29.353333404287696,
+      "metal_wins": true
+    },
+    {
+      "kernel": "TinyAttention",
+      "K_eff": 9,
+      "has_reduction": true,
+      "pred_metal_us": 4.0735798854974705,
+      "obs_metal_us": 25.845041498541832,
+      "pred_jit_us": 18.235673306134874,
+      "obs_jit_us": 99.53793743625283,
+      "metal_wins": true
+    },
+    {
+      "kernel": "DDPMStep",
+      "K_eff": 17,
+      "has_reduction": false,
+      "pred_metal_us": 3.8551036950212803,
+      "obs_metal_us": 2.6786664966493845,
+      "pred_jit_us": 3.543144374926015,
+      "obs_jit_us": 40.97804147750139,
+      "metal_wins": true
+    },
+    {
+      "kernel": "FusedV+DDPM",
+      "K_eff": 23,
+      "has_reduction": false,
+      "pred_metal_us": 3.8551036950212803,
+      "obs_metal_us": 2.968687564134598,
+      "pred_jit_us": 3.543144374926015,
+      "obs_jit_us": 46.1822294164449,
+      "metal_wins": true
+    }
+  ]
+}

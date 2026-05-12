@@ -1,0 +1,46 @@
+{
+  "measurements": [
+    {
+      "name": "RMSNorm +FiLM",
+      "jit_ms": 0.023693771101534367,
+      "metal_ms": 0.018089374992996454,
+      "speedup": 1.3098170119591048,
+      "status": "win"
+    },
+    {
+      "name": "Tiny Attention",
+      "jit_ms": 0.08552364609204233,
+      "metal_ms": 0.02583520789630711,
+      "speedup": 3.310352540428641,
+      "status": "win"
+    },
+    {
+      "name": "DDPM Step",
+      "jit_ms": 0.03923377091996372,
+      "metal_ms": 0.003422353882342577,
+      "speedup": 11.463972537260956,
+      "status": "win"
+    },
+    {
+      "name": "Fused $v$+DDPM",
+      "jit_ms": 0.04171600006520748,
+      "metal_ms": 0.003545645624399185,
+      "speedup": 11.765417214326465,
+      "status": "win"
+    },
+    {
+      "name": "Fused FFN",
+      "jit_ms": 0.12,
+      "metal_ms": 12.0,
+      "speedup": 0.01,
+      "status": "loss"
+    },
+    {
+      "name": "Spec Verify",
+      "jit_ms": 0.94,
+      "metal_ms": 7.21,
+      "speedup": 0.130374479889043,
+      "status": "loss"
+    }
+  ]
+}
